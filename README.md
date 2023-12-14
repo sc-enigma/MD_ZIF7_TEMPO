@@ -14,9 +14,11 @@
     
   - mol2ToAtoms(data)
  
-    data: output of read_mol2file, returns list of atoms
+    data: output of read_mol2file(), returns list of atoms
 
   - countAtoms(atoms)
+ 
+    prints number of atoms of each atom_type
 
 #tempo
 
