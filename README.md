@@ -12,7 +12,10 @@
 
     adjacency: list of integers
     
-  - mol2ToAtoms
+  - mol2ToAtoms(data)
+ 
+    data: output of read_mol2file, returns list of atoms
+
   - countAtoms(atoms)
 
 #tempo
