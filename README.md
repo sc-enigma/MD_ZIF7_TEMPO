@@ -8,7 +8,9 @@
     
     resid_idx: integer, resid: string, atom_idx: integer, atom_type: string
 
-    r_internal: np.zeros(3), adjacency: list of integers
+    r_internal: np.zeros(3)
+
+    adjacency: list of integers
     
   - mol2ToAtoms
   - countAtoms(atoms)
