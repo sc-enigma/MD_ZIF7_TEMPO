@@ -72,4 +72,4 @@ atoms = transform_lattice(atoms_zif7, a, b, c, alpha, beta, gamma, a_np, b_np, c
 atoms_zif7, atoms_tempo = put_tempo_in_lattice(atoms_zif7, atoms_tempo, np.array([0.7, 0.2, 0.1]))
 atoms_zif7_tempo_np = atoms_zif7.copy()
 atoms_zif7_tempo_np.extend(atoms_tempo.copy())
-write_gro_file(atoms_zif7_tempo_np, 'zif7_tempo_np.gro', a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)
+write_gro_file(atoms_zif7_tempo_np, 'zif7_tempo_np.gro', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, bounds_a, bounds_b, bounds_c)
