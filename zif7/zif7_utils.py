@@ -23,7 +23,7 @@ def remove_oxygen(atoms):
             atoms[atom_idx].adjacency.remove(-1)
     return atoms
     
-def defineAtomTypes(atoms):
+def define_zif7_atom_types(atoms):
     def getNeighbours(atom_idx):
         return [atoms[adj_idx] for adj_idx in atoms[atom_idx].adjacency]
     
@@ -91,7 +91,7 @@ def defineAtomTypes(atoms):
             
     return atoms
 
-def defineAtomNames(atoms):  
+def define_zif7_atom_names(atoms):  
     for atom_idx in range(len(atoms)):
         atoms[atom_idx].name = atoms[atom_idx].atom_type.replace('intraFF_', '')
         atoms[atom_idx].resid_idx = 1
