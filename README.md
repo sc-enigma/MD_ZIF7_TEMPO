@@ -25,8 +25,9 @@ Atomic coordinates are measured in angstroms.
  
     prints number of atoms of each atom_type
 
+- read_utils
+  - read_mol2_file(filename)
 - write_utils
-
 # tempo
 
 # zif7
