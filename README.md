@@ -19,7 +19,7 @@ Atomic coordinates are measured in angstroms.
     
   - mol2ToAtoms(data)
  
-    data: output of read_mol2file(), returns list of atoms
+    data: output of read_mol2file(), returns list of atoms. Usage: atoms = mol2ToAtoms(readMol2File('zif7.mol2'))
 
   - countAtoms(atoms)
  
