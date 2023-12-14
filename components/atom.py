@@ -16,7 +16,7 @@ class Atom:
         self.r_internal = np.zeros(3)
         self.adjacency = []
 
-def mol2ToAtoms(data):
+def mol2_to_atoms(data):
     atoms = []
     
     data_atoms = data['ATOM']
@@ -38,7 +38,7 @@ def mol2ToAtoms(data):
         
     return atoms
     
-def countAtoms(atoms):
+def count_atoms(atoms):
     count = {}
     for atom_idx in range(len(atoms)):
         atom_type = atoms[atom_idx].atom_type
@@ -49,7 +49,7 @@ def countAtoms(atoms):
     for atom_type in count.keys():
         print(f'{atom_type}    {count[atom_type]}')
         
-def dumpAtoms(atoms, dim_1=0, dim_2=1, dumpBonds=False):
+def dump_atoms(atoms, dim_1=0, dim_2=1, dumpBonds=False):
     points_single = []
     point_pairs = []
     for atom_idx in range(len(atoms)):

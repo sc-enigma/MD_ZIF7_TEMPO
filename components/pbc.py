@@ -36,7 +36,7 @@ def compare_periodic(r1, r2, p_a, p_b, p_c):
     delta[2] = min(delta[2], p_c - delta[2])
     return abs(delta[0]) < tol and abs(delta[1]) < tol and abs(delta[2]) < tol
 
-def apply_PBC(atoms,
+def apply_pbc(atoms,
               a, b, c,
               alpha, beta, gamma,
               bounds_a, bounds_b, bounds_c):

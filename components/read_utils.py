@@ -1,6 +1,6 @@
 import numpy as np
 
-def readMol2File(filename):
+def read_mol2_file(filename):
     mol2file = open(filename, 'r')
     mol2sections = {}
 
