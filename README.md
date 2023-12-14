@@ -2,7 +2,7 @@
 
 Aom indices start with 0.
 
-Units of atom coordinates: angstrems
+Atomic coordinates are measured in angstroms.
 
 # components
 
