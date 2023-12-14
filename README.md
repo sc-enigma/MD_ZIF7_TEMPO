@@ -1,10 +1,9 @@
 # MD_ZIF7_TEMPO
-components
+#components
 
 - atom
   - Atom
-    # name        
-        self.r = np.array(r)
+    r = np.array(3)
         
         # topology properties
         self.resid_idx = 0
@@ -18,10 +17,10 @@ components
   - mol2ToAtoms
   - countAtoms(atoms)
 
-tempo
+#tempo
 
-zif7
+#zif7
 
-zif7_tempo
+#zif7_tempo
 
-mdp
+#mdp
