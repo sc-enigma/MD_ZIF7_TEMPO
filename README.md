@@ -3,6 +3,7 @@
 
 - atom
   - Atom
+    
     r = np.array(3)
         
         # topology properties
