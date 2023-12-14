@@ -3,18 +3,17 @@
 
 - atom
   - Atom
+
+    name: string
+    r: np.array(3)
+    resid_idx: integer
+    resid: string
+    atom_idx: integer
+    atom_type: string
+        
+    r_internal: np.zeros(3)
+    adjacency: list of integers
     
-    r = np.array(3)
-        
-        # topology properties
-        self.resid_idx = 0
-        self.resid = ''
-        self.atom_idx = 0
-        self.atom_type = ''
-        
-        # internal properties
-        self.r_internal = np.zeros(3)
-        self.adjacency = []
   - mol2ToAtoms
   - countAtoms(atoms)
 
