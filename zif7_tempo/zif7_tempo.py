@@ -4,16 +4,18 @@ import pickle
 
 sys.path.append('../components')
 sys.path.append('../zif7')
-from atom import Atom, mol2ToAtoms
-from read_utils import readMol2File
+from atom import Atom, mol2_to_atoms
+from read_utils import read_mol2_file
 from write_utils import write_gro_file, write_mol2_file
 from pbc import calculate_lattice_vectors
 
 from zif7_utils import transform_lattice
 
-with open('../zif7/__tmp/atoms_zif7.pickle', 'rb') as handle:
-    atoms_zif7 = pickle.load(handle)
-atoms_tempo = mol2ToAtoms(readMol2File('../tempo/tempo.mol2'))
+with open('../zif7/__tmp/atoms_zif7_np.pickle', 'rb') as handle:
+    atoms_zif7_np = pickle.load(handle)
+with open('../zif7/__tmp/atoms_zif7_lp.pickle', 'rb') as handle:
+    atoms_zif7_lp = pickle.load(handle)
+atoms_tempo = mol2_to_atoms(read_mol2_file('../tempo/tempo.mol2'))
 for atom_idx in range(len(atoms_tempo)):
     atoms_tempo[atom_idx].resid_idx = 1
     atoms_tempo[atom_idx].resid = 'TMP'
@@ -53,8 +55,8 @@ gamma = 120.00 / 180 * np.pi
 bounds_a, bounds_b, bounds_c = [1.0, 3.0], [1.0, 3.0], [1.0, 3.0]
 
 # Save .gro file
-atoms_zif7, atoms_tempo = put_tempo_in_lattice(atoms_zif7, atoms_tempo)
-atoms_zif7_tempo_lp = atoms_zif7.copy()
+atoms_zif7_lp, atoms_tempo = put_tempo_in_lattice(atoms_zif7_lp, atoms_tempo)
+atoms_zif7_tempo_lp = atoms_zif7_lp.copy()
 atoms_zif7_tempo_lp.extend(atoms_tempo.copy())
 write_gro_file(atoms_zif7_tempo_lp, 'zif7_tempo_lp.gro', a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)
 
@@ -66,10 +68,8 @@ alpha_np = 84.80 / 180 * np.pi
 beta_np  = 86.10 / 180 * np.pi
 gamma_np = 128.00 / 180 * np.pi
 
-atoms = transform_lattice(atoms_zif7, a, b, c, alpha, beta, gamma, a_np, b_np, c_np, alpha_np, beta_np, gamma_np)
-
 # Save .gro file
-atoms_zif7, atoms_tempo = put_tempo_in_lattice(atoms_zif7, atoms_tempo, np.array([0.7, 0.2, 0.1]))
-atoms_zif7_tempo_np = atoms_zif7.copy()
+atoms_zif7_np, atoms_tempo = put_tempo_in_lattice(atoms_zif7_np, atoms_tempo, np.array([0.7, 0.2, 0.1]))
+atoms_zif7_tempo_np = atoms_zif7_np.copy()
 atoms_zif7_tempo_np.extend(atoms_tempo.copy())
 write_gro_file(atoms_zif7_tempo_np, 'zif7_tempo_np.gro', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, bounds_a, bounds_b, bounds_c)
