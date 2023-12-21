@@ -1,0 +1,1 @@
+nohup gmx_mpi mdrun -s *.tpr -v
