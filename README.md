@@ -28,10 +28,10 @@ Atomic coordinates are measured in angstroms.
 - read_utils
   - read_mol2_file(filename)
 - write_utils
-# tempo
+# system/tempo
 
-# zif7
+# system/zif7
 
-# zif7_tempo
+# system/zif7_tempo
 
 # mdp
