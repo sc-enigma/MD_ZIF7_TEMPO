@@ -19,7 +19,7 @@ def find_loc(atoms, idx):
     dist_best = 0.0
     for theta in np.linspace(0, np.pi, 10):
         for phi in np.linspace(0, 2.0 * np.pi, 10):
-            r = atoms[idx].r
+            r = np.copy(atoms[idx].r)
             r[0] += 1.25 * np.sin(theta) * np.cos(phi)
             r[1] += 1.25 * np.sin(theta) * np.sin(phi)
             r[2] += 1.25 * np.cos(theta)
@@ -28,19 +28,19 @@ def find_loc(atoms, idx):
             for atom_idx in range(len(atoms)):
                 if atom_idx == idx:
                     continue
-                delta = pow(sum(np.power(atoms[atom_idx].r - r, 2)), 0.5)
+                delta = pow(sum(np.power(np.copy(atoms[atom_idx].r) - np.copy(r), 2)), 0.5)
                 dist = min(dist, delta)
             if dist > dist_best:
                 dist_best = dist
-                r_best = r
+                r_best = np.copy(r)
     return r_best
 
 def add_OH(atoms, idx):
     l = len(atoms)
-    atoms.append(Atom('OR', find_loc(atoms, idx)))
+    atoms.append(Atom('OR', np.copy(find_loc(atoms, idx))))
     atoms[idx].adjacency.append(l)
     atoms[l].adjacency.append(idx)
-    atoms.append(Atom('HR', find_loc(atoms, l)))
+    atoms.append(Atom('HR', np.copy(find_loc(atoms, l))))
     atoms[l].adjacency.append(l + 1)
     atoms[l + 1].adjacency.append(l)
     
@@ -57,13 +57,13 @@ def add_OH(atoms, idx):
     
 def add_OH2(atoms, idx):
     l = len(atoms)
-    atoms.append(Atom('OR', find_loc(atoms, idx)))
+    atoms.append(Atom('OR', np.copy(find_loc(atoms, idx))))
     atoms[idx].adjacency.append(l)
     atoms[l].adjacency.append(idx)
-    atoms.append(Atom('HR', find_loc(atoms, l)))
+    atoms.append(Atom('HR', np.copy(find_loc(atoms, l))))
     atoms[l].adjacency.append(l + 1)
     atoms[l + 1].adjacency.append(l)
-    atoms.append(Atom('HR', find_loc(atoms, l)))
+    atoms.append(Atom('HR', np.copy(find_loc(atoms, l))))
     atoms[l].adjacency.append(l + 2)
     atoms[l + 2].adjacency.append(l)
     
@@ -82,7 +82,6 @@ def add_OH2(atoms, idx):
     
     return atoms
     
-#for
 for removed_count in range(1, 4):
     # STEP 0. Load atoms   
     with open('../zif7_tempo/__tmp/atoms_tempo_np.pickle', 'rb') as handle:
@@ -106,11 +105,12 @@ for removed_count in range(1, 4):
                          2232, 2231, 2249, 2248, 2227, 2228, 2226, 2242, 2243, 2244, 2255, 2234]
     atoms_zif7_lp = remove_atoms(atoms_zif7_lp, ids_to_remove).copy()
     atoms_zif7_np = remove_atoms(atoms_zif7_np, ids_to_remove).copy()
-    atoms_zif7_lp = remove_non_bonded_atoms(atoms_zif7_lp).copy()
-    atoms_zif7_np = remove_non_bonded_atoms(atoms_zif7_np).copy()
+    # atoms_zif7_lp = remove_non_bonded_atoms(atoms_zif7_lp).copy()
+    # atoms_zif7_np = remove_non_bonded_atoms(atoms_zif7_np).copy()
 
     # STEP 2. Add OH and OH2
     if removed_count == 1:
+        pass
         # 2270 2283
         atoms_zif7_np = add_OH(atoms_zif7_np,  2270)
         atoms_zif7_lp = add_OH(atoms_zif7_lp,  2270)

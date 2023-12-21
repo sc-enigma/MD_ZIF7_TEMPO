@@ -1,0 +1,10 @@
+gmx_mpi grompp -f em.mdp -c *.gro -p topol.top -o em.tpr -maxwarn 1 -v
+gmx_mpi grompp -f eql.mdp -c *.gro -p topol.top -o eql.tpr -maxwarn 1 -v
+gmx_mpi grompp -f prod.mdp -c *.gro -p topol.top -o prod.tpr -maxwarn 1 -v
+
+
+
+gmx_mpi mdrun -s *.tpr -v
+
+
+
