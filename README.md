@@ -4,7 +4,7 @@ Aom indices start with 0.
 
 Atomic coordinates are measured in angstroms.
 
-# components
+# system/components
 
 - atom
   - Atom
