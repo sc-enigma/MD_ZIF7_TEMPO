@@ -70,7 +70,7 @@ for removed_count in range(4):
     atoms_zif7_tempo = atoms_zif7.copy()
     atoms_zif7_tempo.extend(atoms_tempo.copy())
     
-    mol_count = 10
+    mol_count = 50
     for mol_idx in range(mol_count):
         print(mol_idx)
         for atom_idx in range(len(atoms_zif7_tempo)):
