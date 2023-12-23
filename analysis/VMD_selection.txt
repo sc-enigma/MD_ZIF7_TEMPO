@@ -1,0 +1,7 @@
+LP pore B
+BONDS
+x < -1 and x > -13 and y > 15 and y < 28 and z < 20
+VDW
+x < -1 and x > -15 and y > 19 and y < 27.5 and name N and z < 18.5 and z > 4 and index != 3227 and index != 522 and index != 883
+VDW
+x < 5 and x > -10 and y > 15 and y < 32 and name Zn and z < 25 and z > 1
