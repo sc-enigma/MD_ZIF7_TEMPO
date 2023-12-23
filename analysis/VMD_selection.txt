@@ -1,3 +1,13 @@
+LP pore A
+VDW
+x< -4 and x > -19 and z > 25 and y > 25 and name Zn and resname ZIF
+CPK
+x< -6 and x > -16 and z > 22 and y > 28 and y < 39 and index != 3894 and resname ZIF 
+VDW
+resname TMP 
+VDW
+name OR or name HR
+
 LP pore B
 BONDS
 x < -1 and x > -13 and y > 15 and y < 28 and z < 20
