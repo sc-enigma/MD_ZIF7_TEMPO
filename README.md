@@ -9,13 +9,13 @@ Atom coordinates are measured in angstroms.
 - **atom.py**
   - **Atom**
 
-    name: string, r: np.array(3)
+      name: string, r: np.array(3)
     
-    resid_idx: integer, resid: string, atom_idx: integer, atom_type: string
+      resid_idx: integer, resid: string, atom_idx: integer, atom_type: string
 
-    r_internal: np.zeros(3). Lattice coordinates
+      r_internal: np.zeros(3). Lattice coordinates
 
-    adjacency: list of integers
+      adjacency: list of integers
     
   - **copy_atom(atom)**
 
