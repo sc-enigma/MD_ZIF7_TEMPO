@@ -7,7 +7,7 @@ Atom coordinates are measured in angstroms.
 # system/components
 
 - atom
-  - Atom
+  - **Atom**
 
     name: string, r: np.array(3)
     
