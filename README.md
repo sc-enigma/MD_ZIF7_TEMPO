@@ -1,8 +1,8 @@
 # MD_ZIF7_TEMPO
 
-Aom indices start with 0.
+Atom indices start with 0.
 
-Atomic coordinates are measured in angstroms.
+Atom coordinates are measured in angstroms.
 
 # system/components
 
