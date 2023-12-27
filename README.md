@@ -105,3 +105,12 @@ Topology of TEMPO in ZIF7 with absorbed CO2 molecules + scripts for topology pre
 - em.mdp
 - eql.mdp
 - prod.mdp
+
+# Analysis
+- **Python project for analysis**
+- **linkers_angle**
+- **msd**
+- **qc**
+- **rdf**
+- **rotacf**
+- **window_size**
