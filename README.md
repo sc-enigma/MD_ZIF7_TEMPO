@@ -101,3 +101,7 @@ Topology of TEMPO in ZIF7 with removed linkers + scripts for topology preparatio
 Topology of TEMPO in ZIF7 with absorbed CO2 molecules + scripts for topology preparation
 
 # mdp
+
+- em.mdp
+- eql.mdp
+- prod.mdp
