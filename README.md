@@ -50,24 +50,41 @@ Atom coordinates are measured in angstroms.
   - **write_mol2_file(atoms, filename, a, b, c, alpha, beta, gamma, skip_long_bonds=False)**
  
   - **write_atoms(atoms, charge, mass, resid, filename)**
+    Write GROMACS itp file. Charge and mass are dictionaries with key = atomtype and value = double
  
   - **write_bonds(atoms, bond_params, filename)**
+    Write GROMACS itp file. bond_params is dictionaries with key = atomtype and value = list of bond params
  
   - **write_angles(atoms, angle_params, filename)**
+    Write GROMACS itp file. angle_params is dictionaries with key= atomtype and value = list of angle params
  
   - **write_dihedrals(atoms, dihedral_params, filename)**
+    Write GROMACS itp file. dihedral_params is dictionaries with key = atomtype and value = list of dihedral params
  
   - **compose_itp_files(itp_filenames, filename)**
+    Unites several files in one. itp_filenames is a list of input filenames
 
 - **get_topology_params.py**
+    - **getAllBonds(atoms)**
+      Returns list of all unique bonds in atoms. Bond is a list consists of 2 atomic indices
+ 
+    - **getAllAngles(atoms)**
+      Returns list of all unique angles in atoms. Angle is a list consists of 3 atomic indices
+ 
+    - **getAllDihedrals(atoms)**
+      Returns list of all unique dihedrals in atoms. Dihedral is a list consists of 4 atomic indices
 
 - **pbc.py**
 
   - **calculate_lattice_vectors(a, b, c, alpha, beta, gamma)**
+    Calculates lattice vectors
  
   - **compare_periodic(r1, r2, p_a, p_b, p_c)**
+    Compares 2 lattice vectors. p_a, p_b, p_c are periods (default 0)
  
   - **apply_pbc(atoms, a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)**
+    Calculates lattice vectors for each atom. All atoms for which at least one lattice vector coordinate is not in the corresponding interval are removed: bounds_a, bounds_b, bounds_c. For the remaining atoms, the adjacency is adjusted to ensure correct periodic boundary conditions.
+    
 # system/tempo
 
 # system/zif7
