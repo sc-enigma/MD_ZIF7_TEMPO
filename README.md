@@ -86,9 +86,18 @@ Atom coordinates are measured in angstroms.
     Calculates lattice vectors for each atom. All atoms for which at least one lattice vector coordinate is not in the corresponding interval are removed: bounds_a, bounds_b, bounds_c. For the remaining atoms, the adjacency is adjusted to ensure correct periodic boundary conditions.
     
 # system/tempo
+Topology of TEMPO
 
 # system/zif7
+Topology of ZIF7 + scripts for topology preparation
 
 # system/zif7_tempo
+Topology of TEMPO in ZIF7 + scripts for topology preparation
+
+# system/zif7_tempo_removed
+Topology of TEMPO in ZIF7 with removed linkers + scripts for topology preparation
+
+# system/zif7_tempo_CO2
+Topology of TEMPO in ZIF7 with absorbed CO2 molecules + scripts for topology preparation
 
 # mdp
