@@ -1,0 +1,4 @@
+gmx_mpi rotacf \
+-f /media/sc_enigma/_data/Projects/MD_ZIF7/production/zif7_tempo_lpB/prod/traj_comp.xtc \
+-s /media/sc_enigma/_data/Projects/MD_ZIF7/production/zif7_tempo_lpB/prod/prod.tpr \
+-n index.ndx -o N_O/zif7_tempo_lpB
