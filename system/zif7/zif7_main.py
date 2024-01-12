@@ -10,7 +10,8 @@ from write_utils import write_atoms, write_bonds, write_angles, write_dihedrals,
 from pbc import apply_pbc, calculate_lattice_vectors
 
 from zif7_utils import remove_oxygen, define_zif7_atom_types, define_zif7_atom_names, transform_lattice
-from zif7_params import get_zif7_params
+# from zif7_params import get_zif7_params
+from zif7_params_rigid import get_zif7_params_rigid
 
 # STEP 1. Read data
 # Set lower bound in Mercury calculate packing = 0.0
@@ -57,13 +58,15 @@ write_gro_file(atoms, 'zif7_np.gro', a_np, b_np, c_np, alpha_np, beta_np, gamma_
 write_mol2_file(atoms, 'zif7_np.mol2', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, skip_long_bonds=True)
 
 # STEP 5. Write .itp files
-mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params()
+mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params_rigid()
 write_atoms(atoms, charge, mass, 'ZIF', 'atoms.itp')
 write_bonds(atoms, bond_params, 'bonds.itp')
 write_angles(atoms, angle_params, 'angles.itp')
 write_dihedrals(atoms, dihedral_params, 'dihedrals.itp')
+# compose_itp_files(['atomtypes.itp',
+#                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
 compose_itp_files(['atomtypes.itp',
-                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
+                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7_rigid.itp')
 
 
 

@@ -45,19 +45,19 @@ def define_zif7_atom_types(atoms):
   
     # define C1: intraFF_C1
     for atom_idx in range(len(atoms)):
-        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == '':
+        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == 'unk_type':
             if (np.array_equal(getNeighbourElems(atom_idx), ['H', 'N', 'N'])):
                 atoms[atom_idx].atom_type = 'intraFF_C1'
     
     # define C2: intraFF_C2
     for atom_idx in range(len(atoms)):
-        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == '':
+        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == 'unk_type':
             if (np.array_equal(getNeighbourElems(atom_idx), ['C', 'C', 'N'])):
                 atoms[atom_idx].atom_type = 'intraFF_C2'
                 
     # define C5: intraFF_C5
     for atom_idx in range(len(atoms)):
-        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == '':
+        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == 'unk_type':
             for neighbour in getNeighbours(atom_idx):
                 if neighbour.atom_type == 'intraFF_C2':
                     atoms[atom_idx].atom_type = 'intraFF_C5'
@@ -65,7 +65,7 @@ def define_zif7_atom_types(atoms):
                 
     # define C6: intraFF_C6
     for atom_idx in range(len(atoms)):
-        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == '':
+        if getElem(atom_idx) == 'C' and atoms[atom_idx].atom_type == 'unk_type':
             for neighbour in getNeighbours(atom_idx):
                 if neighbour.atom_type == 'intraFF_C5':
                     atoms[atom_idx].atom_type = 'intraFF_C6'
@@ -84,9 +84,8 @@ def define_zif7_atom_types(atoms):
             
     # check that all atom types defined
     for atom_idx in range(len(atoms)):
-        if atoms[atom_idx].atom_type == '':
-            print('ERROR')
-            
+        if atoms[atom_idx].atom_type == 'unk_type':
+            print('ERROR')            
             print(getElem(atom_idx), getNeighbourElems(atom_idx))
             
     return atoms
