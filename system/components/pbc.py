@@ -41,7 +41,7 @@ def apply_pbc(atoms,
               alpha, beta, gamma,
               bounds_a, bounds_b, bounds_c):
     # Calculate internal coordinates
-    alpha_rev = np.arccos((np.cos(beta) * np.cos(gamma) - np.cos(alpha)) / np.sin(beta) / np.sin(gamma))
+    '''alpha_rev = np.arccos((np.cos(beta) * np.cos(gamma) - np.cos(alpha)) / np.sin(beta) / np.sin(gamma))
 
     transformation = np.array([\
         [a,   b*np.cos(gamma), c*np.cos(beta)], \
@@ -54,7 +54,7 @@ def apply_pbc(atoms,
         atoms[atom_idx].r_internal = transformation_inv.dot(np.transpose(atoms[atom_idx].r))
 
     # to create unique.npy and adjacency_data.pickle decomment code below
-    '''tol_internal = 1e-4
+    tol_internal = 1e-4
     unique = np.empty(len(atoms))
     # define what atoms are unique and what are copies
     for atom_idx in range(len(atoms)):
