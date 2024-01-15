@@ -41,7 +41,7 @@ def apply_pbc(atoms,
               alpha, beta, gamma,
               bounds_a, bounds_b, bounds_c):
     # Calculate internal coordinates
-    '''alpha_rev = np.arccos((np.cos(beta) * np.cos(gamma) - np.cos(alpha)) / np.sin(beta) / np.sin(gamma))
+    alpha_rev = np.arccos((np.cos(beta) * np.cos(gamma) - np.cos(alpha)) / np.sin(beta) / np.sin(gamma))
 
     transformation = np.array([\
         [a,   b*np.cos(gamma), c*np.cos(beta)], \
@@ -54,7 +54,7 @@ def apply_pbc(atoms,
         atoms[atom_idx].r_internal = transformation_inv.dot(np.transpose(atoms[atom_idx].r))
 
     # to create unique.npy and adjacency_data.pickle decomment code below
-    tol_internal = 1e-4
+    tol_internal = 1e-3
     unique = np.empty(len(atoms))
     # define what atoms are unique and what are copies
     for atom_idx in range(len(atoms)):
@@ -78,7 +78,7 @@ def apply_pbc(atoms,
                     atoms[atom_idx1].adjacency = np.unique(atoms[atom_idx1].adjacency).tolist()
 
     # correct adjacency: remove ids of copies by ids of their originals
-    tol_internal = 1e-4
+    tol_internal = 1e-3
     p_a, p_b, p_c = bounds_a[1] - bounds_a[0], bounds_b[1] - bounds_b[0], bounds_c[1] - bounds_c[0]
     for atom_idx in range(len(atoms)):
         if not unique[atom_idx]:
@@ -107,7 +107,7 @@ def apply_pbc(atoms,
     adjacency_data = [atom.adjacency for atom in atoms]
     with open('__tmp/adjacency_data.pickle', 'wb') as handle:
         pickle.dump(adjacency_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    '''
+    
     unique = np.load('__tmp/unique.npy')
     with open('__tmp/adjacency_data.pickle', 'rb') as handle:
         adjacency_data = pickle.load(handle)
