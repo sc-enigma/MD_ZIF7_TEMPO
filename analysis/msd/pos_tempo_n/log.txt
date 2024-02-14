@@ -1,3 +1,0 @@
-MSD zif7_tempo_lpA = 0.144 nm
-MSD zif7_tempo_npA = 0.059 nm
-MSD zif7_tempo_lpB = 0.147 nm
