@@ -65,12 +65,12 @@ atoms_zif7_tempo_lp.extend(atoms_tempo.copy())
 write_gro_file(atoms_zif7_tempo_lp, 'zif7_tempo_lp.gro', a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)
 
 # structure with nano pores
-a_np     = 24.60
-b_np     = 21.10
-c_np     = 15.70
-alpha_np = 84.80 / 180 * np.pi
-beta_np  = 86.10 / 180 * np.pi
-gamma_np = 128.00 / 180 * np.pi
+a_np     = 23.94
+b_np     = 21.35
+c_np     = 16.34
+alpha_np = 90.28 / 180 * np.pi
+beta_np  = 93.28 / 180 * np.pi
+gamma_np = 108.41 / 180 * np.pi
 
 # Save .gro file
 atoms_zif7_np, atoms_tempo = put_tempo_in_lattice(atoms_zif7_np, atoms_tempo)
