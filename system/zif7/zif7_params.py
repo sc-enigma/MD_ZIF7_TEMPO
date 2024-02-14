@@ -56,9 +56,9 @@ def get_zif7_params():
     angle_params['intraFF_C6-intraFF_C6-intraFF_H6'] = [1, 119.15, 253.341]
     angle_params['intraFF_C6-intraFF_C5-intraFF_H5'] = [1, 121.48, 267.274]
     angle_params['intraFF_C2-intraFF_C2-intraFF_C5'] = [1, 120.93, 610.027]
-    angle_params['intraFF_N-intraFF_Zn-intraFF_N']   = [1, 109.42, 76.1490]
-    angle_params['intraFF_Zn-intraFF_N-intraFF_C1']  = [1, 126.76, 76.4840]
-    angle_params['intraFF_Zn-intraFF_N-intraFF_C2']  = [1, 127.94, 78.8270]
+    angle_params['intraFF_N-intraFF_Zn-intraFF_N']   = [1, 109.42, 134.055]
+    angle_params['intraFF_Zn-intraFF_N-intraFF_C1']  = [1, 126.76, 206.020]
+    angle_params['intraFF_Zn-intraFF_N-intraFF_C2']  = [1, 127.94, 214.095]
     angle_params['intraFF_N-intraFF_Zn-repl_O']      = [1, 110.97, 76.3000]
     angle_params['intraFF_Zn-repl_O-repl_H']         = [1, 112.68, 76.3000]
     angle_params['repl_H-repl_O-repl_H']             = [1, 109.47, 383, 109.47, 383]
@@ -66,23 +66,39 @@ def get_zif7_params():
     # [atom_type-atom_type-atom_type-atom_type] = [funct, angle, k, n]        - periodic
     # [atom_type-atom_type-atom_type-atom_type] = [funct, c1, c2, c3, c4, c5] - fourier
     dihedral_params = {}
-    dihedral_params['intraFF_N-intraFF_C2-intraFF_C5-intraFF_C6']  = [9, 180.00, 1.58992, 2]
-    dihedral_params['intraFF_H1-intraFF_C1-intraFF_N-intraFF_C2']  = [9, 180.00, 9.91608, 2]
-    dihedral_params['intraFF_C1-intraFF_N-intraFF_C2-intraFF_C2']  = [9, 180.00, 2.88696, 2]
-    dihedral_params['intraFF_H5-intraFF_C5-intraFF_C2-intraFF_N']  = [9, 180.00, 0.92048, 2]
-    dihedral_params['intraFF_C2-intraFF_C2-intraFF_C5-intraFF_H5'] = [9, 180.00, 1.08784, 2]
-    dihedral_params['intraFF_C5-intraFF_C2-intraFF_C2-intraFF_C5'] = [9, 180.00, 2.59408, 2]
-    dihedral_params['intraFF_H5-intraFF_C5-intraFF_C6-intraFF_C6'] = [9, 180.00, 0.92048, 2]
-    dihedral_params['intraFF_H6-intraFF_C6-intraFF_C6-intraFF_C5'] = [9, 180.00, 2.34304, 2]
-    dihedral_params['intraFF_C5-intraFF_C6-intraFF_C6-intraFF_C5'] = [9, 180.00, 4.43504, 2]
-    dihedral_params['intraFF_N-intraFF_C2-intraFF_C2-intraFF_N']   = [9, 180.00, 4.60240, 2]
-    dihedral_params['intraFF_N-intraFF_C2-intraFF_C2-intraFF_C5']  = [9, 180.00, 2.05016, 2]
-    dihedral_params['intraFF_C1-intraFF_N-intraFF_C2-intraFF_C5']  = [9, 180.00, 2.46856, 2]
-    dihedral_params['intraFF_C2-intraFF_C5-intraFF_C6-intraFF_H6'] = [9, 180.00, 5.18816, 2]
-    dihedral_params['intraFF_C6-intraFF_C5-intraFF_C2-intraFF_C2'] = [9, 180.00, 0.92048, 2]
-    dihedral_params['intraFF_C6-intraFF_C6-intraFF_C5-intraFF_C2'] = [9, 180.00, 2.42672, 2]
-    dihedral_params['intraFF_N-intraFF_C1-intraFF_N-intraFF_C2']   = [9, 180.00, 9.62320, 2]
-    dihedral_params['intraFF_C1-intraFF_N-intraFF_Zn-intraFF_N']   = [5, 12.63568, 9.45584, 0.33472, 0.00000]
-    dihedral_params['intraFF_C2-intraFF_N-intraFF_Zn-intraFF_N']   = [5, 14.18376, -8.03328, 0.08368, 0.00000]
+    dihedral_params['intraFF_N-intraFF_C2-intraFF_C5-intraFF_C6']  = [9, 180.00, 3.09616, 2]
+    dihedral_params['intraFF_H1-intraFF_C1-intraFF_N-intraFF_C2']  = [9, 180.00, 15.31344, 2]
+    dihedral_params['intraFF_C1-intraFF_N-intraFF_C2-intraFF_C2']  = [9, 180.00, 5.27184, 2]
+    dihedral_params['intraFF_H5-intraFF_C5-intraFF_C2-intraFF_N']  = [9, 180.00, 1.38072, 2]
+    dihedral_params['intraFF_C2-intraFF_C2-intraFF_C5-intraFF_H5'] = [9, 180.00, 1.88280, 2]
+    dihedral_params['intraFF_C5-intraFF_C2-intraFF_C2-intraFF_C5'] = [9, 180.00, 3.93296, 2]
+    dihedral_params['intraFF_H5-intraFF_C5-intraFF_C6-intraFF_C6'] = [9, 180.00, 1.79912, 2]
+    dihedral_params['intraFF_H6-intraFF_C6-intraFF_C6-intraFF_C5'] = [9, 180.00, 3.59824, 2]
+    dihedral_params['intraFF_C5-intraFF_C6-intraFF_C6-intraFF_C5'] = [9, 180.00, 9.03744, 2]
+    dihedral_params['intraFF_N-intraFF_C2-intraFF_C2-intraFF_N']   = [9, 180.00, 9.37216, 2]
+    dihedral_params['intraFF_N-intraFF_C2-intraFF_C2-intraFF_C5']  = [9, 180.00, 3.76560, 2]
+    dihedral_params['intraFF_C1-intraFF_N-intraFF_C2-intraFF_C5']  = [9, 180.00, 4.39320, 2]
+    dihedral_params['intraFF_C2-intraFF_C5-intraFF_C6-intraFF_H6'] = [9, 180.00, 10.75288, 2]
+    dihedral_params['intraFF_C6-intraFF_C5-intraFF_C2-intraFF_C2'] = [9, 180.00, 2.25936, 2]
+    dihedral_params['intraFF_C6-intraFF_C6-intraFF_C5-intraFF_C2'] = [9, 180.00, 4.26768, 2]
+    dihedral_params['intraFF_N-intraFF_C1-intraFF_N-intraFF_C2']   = [9, 180.00, 14.85320, 2]
+    dihedral_params['intraFF_C1-intraFF_N-intraFF_Zn-intraFF_N']   = [5, 18.82800, 15.39712, 0.54392, 0.00000]
+    dihedral_params['intraFF_C2-intraFF_N-intraFF_Zn-intraFF_N']   = [5, 17.27992, 11.33864, 0.16736, 0.00000]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return mass, charge, bond_params, angle_params, dihedral_params

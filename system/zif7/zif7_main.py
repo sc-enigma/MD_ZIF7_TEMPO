@@ -21,12 +21,12 @@ alpha = 90.00 / 180 * np.pi
 beta  = 90.00 / 180 * np.pi
 gamma = 120.00 / 180 * np.pi
 
-a_np     = 24.60
-b_np     = 21.10
-c_np     = 15.70
-alpha_np = 84.80 / 180 * np.pi
-beta_np  = 86.10 / 180 * np.pi
-gamma_np = 128.00 / 180 * np.pi
+a_np     = 23.948
+b_np     = 21.354
+c_np     = 16.349
+alpha_np = 90.28 / 180 * np.pi
+beta_np  = 93.28 / 180 * np.pi
+gamma_np = 108.41 / 180 * np.pi
 
 bounds_a, bounds_b, bounds_c = [1.0, 3.0], [1.0, 3.0], [1.0, 3.0]
 
@@ -62,6 +62,8 @@ write_atoms(atoms, charge, mass, 'ZIF', 'atoms.itp')
 write_bonds(atoms, bond_params, 'bonds.itp')
 write_angles(atoms, angle_params, 'angles.itp')
 write_dihedrals(atoms, dihedral_params, 'dihedrals.itp')
+# compose_itp_files(['atomtypes.itp',
+#                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
 compose_itp_files(['atomtypes.itp',
                    'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
 

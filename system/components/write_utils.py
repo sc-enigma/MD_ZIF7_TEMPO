@@ -182,7 +182,8 @@ def write_angles(atoms, angle_params, filename):
             if key_reversed in angle_params.keys():
                 params = angle_params[key_reversed]
             else:
-                print('ERROR', key)
+                # print('ERROR', key)
+                continue
         # Write angle params in .itp file
         #         '     1      2      3      1    107.500    502.080'
         file.write(format_val(angle[0]+1,  6   ))
