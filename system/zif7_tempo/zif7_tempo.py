@@ -104,12 +104,12 @@ atoms_zif7_tempo_lpB.extend(atoms_tempo.copy())
 write_gro_file(atoms_zif7_tempo_lpB, 'zif7_tempo_lpB.gro', a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)
 
 # STEP 3. Structure with nano pores. Pore A ________________________________________________________________________
-a_np     = 24.60
-b_np     = 21.10
-c_np     = 15.70
-alpha_np = 84.80 / 180 * np.pi
-beta_np  = 86.10 / 180 * np.pi
-gamma_np = 128.00 / 180 * np.pi
+a_np     = 23.948
+b_np     = 21.354
+c_np     = 16.349
+alpha_np = 90.28 / 180 * np.pi
+beta_np  = 93.28 / 180 * np.pi
+gamma_np = 108.41 / 180 * np.pi
 
 # Load data
 with open('../zif7/__tmp/atoms_zif7_np.pickle', 'rb') as handle:
