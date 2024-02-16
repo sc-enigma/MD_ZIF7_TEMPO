@@ -71,8 +71,8 @@ def write_mol2_file(atoms, filename, a, b, c, alpha, beta, gamma, skip_long_bond
         for bond_idx in range(len(bonds)):
             delta = atoms[bonds[bond_idx][0]].r - atoms[bonds[bond_idx][1]].r
             is_short[bond_idx] = pow(sum(np.power(delta, 2)), 0.5) < 10.0
-    bonds = bonds[is_short]
-    
+        bonds = bonds[is_short]
+        
     file = open(filename, 'w')
     file.write('@<TRIPOS>MOLECULE\n')
     file.write('MOL\n')
@@ -136,13 +136,18 @@ def reverse_param_key(string):
         string_reversed += '-' + val
     return string_reversed
 
-def write_bonds(atoms, bond_params, filename):
+def write_bonds(atoms, bond_params, filename, skip_long_bonds=False):
     bonds = getAllBonds(atoms)
     
     file = open(filename, 'w')
     file.write('[bonds]\n')
     file.write(';   ai     aj funct   r             k\n')
     for bond in bonds:
+        if skip_long_bonds:
+            delta = np.sqrt(sum(np.power((atoms[bond[0]].r - atoms[bond[1]].r), 2)))
+            if delta > 10.0:
+                continue
+        
         # Find bond params
         params = []
         key = f'{atoms[bond[0]].atom_type}-{atoms[bond[1]].atom_type}'
@@ -165,13 +170,19 @@ def write_bonds(atoms, bond_params, filename):
         file.write('\n')
     file.close()
     
-def write_angles(atoms, angle_params, filename):
+def write_angles(atoms, angle_params, filename, skip_long_bonds=False):
     angles = getAllAngles(atoms)
     
     file = open(filename, 'w')
     file.write('[ angles ]\n')
     file.write(';   ai     aj     ak    funct   theta         cth\n')
     for angle in angles:
+        if skip_long_bonds:
+            delta = max(np.sqrt(sum(np.power((atoms[angle[0]].r - atoms[angle[1]].r), 2))), \
+                        np.sqrt(sum(np.power((atoms[angle[1]].r - atoms[angle[2]].r), 2))))
+            if delta > 10.0:
+                continue
+            
         # Find angle params
         params = []
         key = f'{atoms[angle[0]].atom_type}-{atoms[angle[1]].atom_type}-{atoms[angle[2]].atom_type}'
@@ -196,7 +207,7 @@ def write_angles(atoms, angle_params, filename):
         file.write('\n')
     file.close()
     
-def write_dihedrals(atoms, dihedral_params, filename): 
+def write_dihedrals(atoms, dihedral_params, filename, skip_long_bonds=False): 
     dihedrals = getAllDihedrals(atoms)
     
     file = open(filename, 'w')
@@ -204,6 +215,14 @@ def write_dihedrals(atoms, dihedral_params, filename):
     file.write(';    i      j      k      l   func   phase     kd     pn\n')
     file.write(';    i      j      k      l   func   c1     c2     c3     c4     c5\n')
     for dihedral in dihedrals:
+        if skip_long_bonds:
+            delta = max(np.sqrt(sum(np.power((atoms[dihedral[0]].r - atoms[dihedral[1]].r), 2))), \
+                        np.sqrt(sum(np.power((atoms[dihedral[1]].r - atoms[dihedral[2]].r), 2))))
+            delta = max(delta, \
+                        np.sqrt(sum(np.power((atoms[dihedral[2]].r - atoms[dihedral[3]].r), 2))))
+            if delta > 10.0:
+                continue
+            
         # Find dihedral params
         params = []
         key = f'{atoms[dihedral[0]].atom_type}-{atoms[dihedral[1]].atom_type}-{atoms[dihedral[2]].atom_type}-{atoms[dihedral[3]].atom_type}'

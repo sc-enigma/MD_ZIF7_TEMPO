@@ -65,7 +65,7 @@ def apply_pbc(atoms,
             r_internal[2] > bounds_c[0] + tol_internal and r_internal[2] < bounds_c[1] + tol_internal)
     
     # remove duplicates within unique atoms
-    for atom_idx1 in range(len(atoms)):
+    '''for atom_idx1 in range(len(atoms)):
         if not unique[atom_idx1]:
             continue
         for atom_idx2 in range(atom_idx1 + 1, len(atoms)):
@@ -106,7 +106,7 @@ def apply_pbc(atoms,
     np.save('__tmp/unique.npy', unique)
     adjacency_data = [atom.adjacency for atom in atoms]
     with open('__tmp/adjacency_data.pickle', 'wb') as handle:
-        pickle.dump(adjacency_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        pickle.dump(adjacency_data, handle, protocol=pickle.HIGHEST_PROTOCOL)'''
     
     unique = np.load('__tmp/unique.npy')
     with open('__tmp/adjacency_data.pickle', 'rb') as handle:

@@ -1,4 +1,4 @@
-def get_zif7_params():
+def get_zif7_params_lp():
     # [atom_type] = m
     mass = {}
     mass['intraFF_Zn'] = 65.360

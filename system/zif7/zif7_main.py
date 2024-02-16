@@ -10,7 +10,8 @@ from write_utils import write_atoms, write_bonds, write_angles, write_dihedrals,
 from pbc import apply_pbc, calculate_lattice_vectors
 
 from zif7_utils import remove_oxygen, define_zif7_atom_types, define_zif7_atom_names, transform_lattice
-from zif7_params import get_zif7_params
+from zif7_params_lp import get_zif7_params_lp
+from zif7_params_np import get_zif7_params_np
 
 # STEP 1. Read data
 # Set lower bound in Mercury calculate packing = 0.0
@@ -45,7 +46,7 @@ atoms = define_zif7_atom_names(atoms)
 with open('__tmp/atoms_zif7_lp.pickle', 'wb') as handle:
     pickle.dump(atoms, handle, protocol=pickle.HIGHEST_PROTOCOL)
 write_gro_file(atoms, 'zif7_lp.gro', a, b, c, alpha, beta, gamma, bounds_a, bounds_b, bounds_c)
-write_mol2_file(atoms, 'zif7_lp.mol2', a, b, c, alpha, beta, gamma, skip_long_bonds=True)
+write_mol2_file(atoms, 'zif7_lp.mol2', a, b, c, alpha, beta, gamma, skip_long_bonds=False)
 
 # STEP 4.b. Write .gro file for nano pore structure
 atoms = transform_lattice(atoms,
@@ -54,18 +55,28 @@ atoms = transform_lattice(atoms,
 with open('__tmp/atoms_zif7_np.pickle', 'wb') as handle:
     pickle.dump(atoms, handle, protocol=pickle.HIGHEST_PROTOCOL)
 write_gro_file(atoms, 'zif7_np.gro', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, bounds_a, bounds_b, bounds_c)
-write_mol2_file(atoms, 'zif7_np.mol2', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, skip_long_bonds=True)
+write_mol2_file(atoms, 'zif7_np.mol2', a_np, b_np, c_np, alpha_np, beta_np, gamma_np, skip_long_bonds=False)
 
 # STEP 5. Write .itp files
-mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params()
+mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params_lp()
+
+skip_long_bonds = True
 write_atoms(atoms, charge, mass, 'ZIF', 'atoms.itp')
-write_bonds(atoms, bond_params, 'bonds.itp')
-write_angles(atoms, angle_params, 'angles.itp')
-write_dihedrals(atoms, dihedral_params, 'dihedrals.itp')
-# compose_itp_files(['atomtypes.itp',
-#                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
+write_bonds(atoms, bond_params, 'bonds_lp.itp',             skip_long_bonds)
+write_angles(atoms, angle_params, 'angles_lp.itp',          skip_long_bonds)
+write_dihedrals(atoms, dihedral_params, 'dihedrals.itp', skip_long_bonds)
 compose_itp_files(['atomtypes.itp',
-                   'moleculetype.itp', 'atoms.itp', 'bonds.itp', 'angles.itp', 'dihedrals.itp'], 'zif7.itp')
+                   'moleculetype.itp', 'atoms.itp', 'bonds_lp.itp', 'angles_lp.itp', 'dihedrals.itp'], 'zif7_lp.itp')
+
+mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params_np()
+
+skip_long_bonds = True
+write_atoms(atoms, charge, mass, 'ZIF', 'atoms.itp')
+write_bonds(atoms, bond_params, 'bonds_np.itp',             skip_long_bonds)
+write_angles(atoms, angle_params, 'angles_np.itp',          skip_long_bonds)
+write_dihedrals(atoms, dihedral_params, 'dihedrals.itp', skip_long_bonds)
+compose_itp_files(['atomtypes.itp',
+                   'moleculetype.itp', 'atoms.itp', 'bonds_np.itp', 'angles_np.itp', 'dihedrals.itp'], 'zif7_np.itp')
 
 
 

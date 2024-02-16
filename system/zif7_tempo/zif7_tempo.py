@@ -20,8 +20,8 @@ for atom_idx in range(len(atoms_tempo)):
 def put_tempo_in_lattice_A(atoms_zif7, atoms_tempo):
     # Calculate cell center
     cell_center = np.zeros(3)
-    for atom_idx in [2276, 2295, 2256, 2236, 2191, 2210]:
-        cell_center += atoms_zif7[atom_idx].r / 6.0
+    for atom_idx in [2362, 2468]:
+        cell_center += atoms_zif7[atom_idx].r / 2.0
 
     # Calculate TEMPO center
     tempo_center = np.zeros(3)
@@ -44,8 +44,8 @@ def put_tempo_in_lattice_A(atoms_zif7, atoms_tempo):
 def put_tempo_in_lattice_B(atoms_zif7, atoms_tempo):
     # Calculate cell center
     cell_center = np.zeros(3)
-    for atom_idx in [3253, 3230, 1858, 525, 612, 2053]:
-        cell_center += atoms_zif7[atom_idx].r / 6.0
+    for atom_idx in [1783, 2465]:
+        cell_center += atoms_zif7[atom_idx].r / 2.0
 
     # Calculate TEMPO center
     tempo_center = np.zeros(3)
