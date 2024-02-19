@@ -100,8 +100,8 @@ for removed_count in range(1, 4):
         ids_to_remove = [2350, 2364, 2389, 2351, 2381, 2383, 2382, 2387, 2386, 2357, 2358, 2352, 2353,\
                          2454, 2468, 2493, 2455, 2485, 2457, 2456, 2486, 2487, 2461, 2462, 2490, 2491,\
                          2415, 2428, 2442, 2407, 2408, 2409, 2412, 2413, 2435, 2436, 2430, 2429, 2431]
-    atoms_zif7_lp = remove_atoms(atoms_zif7_lp, ids_to_remove).copy()
-
+    atoms_zif7_lp = remove_atoms(atoms_zif7_lp, ids_to_remove)
+    
     # STEP 2. Add OH and OH2
     if removed_count == 1:
         pass
@@ -122,6 +122,7 @@ for removed_count in range(1, 4):
         atoms_zif7_lp = add_OH(atoms_zif7_lp,  2398)
         atoms_zif7_lp = add_OH(atoms_zif7_lp,  2378)
         atoms_zif7_lp = add_OH2(atoms_zif7_lp, 2358)
+    atoms_zif7_lp = remove_non_bonded_atoms(atoms_zif7_lp)
         
     # STEP 3. Create .itp file
     mass, charge, bond_params, angle_params, dihedral_params = get_zif7_params_lp()
