@@ -1,0 +1,10 @@
+02/16/2024, 21:39:13 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpB/eql/
+02/16/2024, 21:40:16 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpB/eql/
+02/16/2024, 21:40:27 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpB/prod/
+02/16/2024, 21:45:12 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpB/eql/
+02/16/2024, 21:57:12 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpB/prod/
+02/18/2024, 00:29:10 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_npA/eql/
+02/18/2024, 00:48:16 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_npA/prod/
+02/18/2024, 00:48:37 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_npB/eql/
+02/18/2024, 01:07:49 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_npB/prod/
+02/18/2024, 01:08:10 gmx_mpi mdrun /home/sc_enigma/Projects/MD_ZIF7/production/zif7_tempo_lpA/prod/

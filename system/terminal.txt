@@ -7,6 +7,6 @@ gmx_mpi mdrun -s *.tpr -v
 
 
 _____________________________________________________________________________________________
-gmx_mpi trjconv -f *.gro -s *.tpr -pbc atom -o confout_pbc.gro -ur tric
+echo 0 | gmx_mpi trjconv -f *.gro -s *.tpr -pbc atom -o confout_pbc.gro -ur tric
 
 gmx_mpi trjconv -b 10000 -e 10000 -f *.xtc -s *.tpr -pbc atom -o confout_pbc.gro -ur tric
