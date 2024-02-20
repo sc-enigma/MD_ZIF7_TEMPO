@@ -1,0 +1,16 @@
+CO2 density
+	gas       1.977 kg / m3
+	liquid 1101.000 kg / m3
+system volume
+	6 x 6 x 6 nm = 2.16e-25 m3
+system mass
+	gas       4.270e-25 kg
+	liquid    2.370e-22 kg
+molecule mass
+	7.315e-26 kg
+___________________________________
+count
+	gas       6
+	liquid    3239
+
+Void volume is 23.2% for narrow pores ("lp" in this project) and 28.9% for large pores ("np")
