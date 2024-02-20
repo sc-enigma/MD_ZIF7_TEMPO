@@ -122,6 +122,7 @@ for removed_count in range(1, 4):
         atoms_zif7_lp = add_OH(atoms_zif7_lp,  2398)
         atoms_zif7_lp = add_OH(atoms_zif7_lp,  2378)
         atoms_zif7_lp = add_OH2(atoms_zif7_lp, 2358)
+        
     atoms_zif7_lp = remove_non_bonded_atoms(atoms_zif7_lp)
         
     # STEP 3. Create .itp file
