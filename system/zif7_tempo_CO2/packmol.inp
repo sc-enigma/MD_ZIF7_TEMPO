@@ -1,0 +1,7 @@
+tolerance 2.0
+output co2_packed.pdb
+filetype pdb
+structure co2.pdb
+  number 300
+  inside cube 0. 0. 0. 60.
+end structure 
