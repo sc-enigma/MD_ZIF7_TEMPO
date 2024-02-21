@@ -1,5 +1,7 @@
 /home/sc_enigma/Downloads/packmol-20.14.3/packmol < packmol.inp
 
+count = 300 and 3000 -> 10 and 100
+
 CRYST1   60.000   60.000   60.000  90.00  90.00  90.00 P 1           1
 
 gmx_mpi solvate -cp zif7_tempo_lpA_removed1.gro -cs co2_packed.pdb -o zif7_tempo_lpA_removed1_co2.gro
