@@ -90,7 +90,7 @@ for removed_count in range(1, 4):
         atoms_zif7_lp = pickle.load(handle)
     
     # STEP 1. Remove linkers
-    # z < 17 and z > 9 and y < 20 and resname ZIF
+    ### z < 17 and z > 9 and y < 20 and resname ZIF
     if removed_count == 1:
         ids_to_remove = [2350, 2364, 2389, 2351, 2381, 2383, 2382, 2387, 2386, 2357, 2358, 2352, 2353]
     if removed_count == 2:
